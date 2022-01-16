@@ -1,5 +1,7 @@
 Useful resource for display connection: https://github.com/henry2423/docker-ros-x11
 
+Official ros tutorial: http://wiki.ros.org/docker/Tutorials/GUI
+
 Working file after all the corrections:
 
 Taken from https://github.com/craymichael/ros-kinetic-nvidia-docker and modified for my personal use
