@@ -1,4 +1,5 @@
 Useful resource for display connection: https://github.com/henry2423/docker-ros-x11
+
 Working file after all the corrections:
 
 Taken from https://github.com/craymichael/ros-kinetic-nvidia-docker and modified for my personal use
