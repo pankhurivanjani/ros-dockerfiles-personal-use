@@ -17,5 +17,7 @@ pankhuri@pankhuri-G5-5500:~/academics/Thesis_progress_work/ros-kinetic-cuda$ sud
 sudo docker run -it  --volume /tmp/.X11-unix:/tmp/.X11-unix:rw   --volume /tmp/.docker.xauth:/tmp/.docker.xauth:rw   --env "XAUTHORITY=/tmp/.docker.xauth"   --env "DISPLAY"   --volume /etc/passwd:/etc/passwd   --volume /etc/group:/etc/group   --user $(root):$(root) pankhurivanjani/roskineticslam:v1 bash
 
 
+docker run --rm -ti --net=host -e DISPLAY=:1 pankhurivanjani/roskineticslam:v1
+
 # for changing image name 
 pankhuri@pankhuri-G5-5500:~/academics/Thesis_progress_work/ros-kinetic-cuda$ sudo docker image tag 09bcad0a6ad5 pankhurivanjani/roskineticslam:v1
