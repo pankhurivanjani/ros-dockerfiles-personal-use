@@ -41,9 +41,11 @@ docker run -it \
       --rm \
       --net=host \
       --privileged \
-      --gpus all \
+      --gpus all\
+      --runtime=nvidia \
       -e DISPLAY \
+      -e NVIDIA_VISIBLE_DEVICES=all \
       -e XAUTHORITY=/tmp/.Xauthority \
       -v ${XAUTHORITY}:/tmp/.Xauthority \
       -v /tmp/.X11-unix:/tmp/.X11-unix \
-      pankhurivanjani/nvidiaroskinetic:v0  bash
+      pankhurivanjani/roskineticslam:v2  
