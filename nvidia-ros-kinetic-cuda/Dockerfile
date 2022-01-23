@@ -106,6 +106,7 @@ RUN git clone https://github.com/uzh-rpg/fast.git \
     && sudo make install 
 
 # build + install g20
+RUN apt-get install libsuitesparse-dev
 RUN wget https://github.com/RainerKuemmerle/g2o/archive/20160424_git.tar.gz -O g2o-20160424_git.tar.gz \
     && tar  xvzf g2o-20160424_git.tar.gz \
     && cd g2o-20160424_git \
