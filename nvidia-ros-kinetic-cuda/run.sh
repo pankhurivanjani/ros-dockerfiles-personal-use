@@ -1,3 +1,5 @@
+docker build .
+
 XAUTH=/tmp/.docker.xauth
 
 echo "Preparing Xauthority data..."
@@ -22,11 +24,26 @@ ls -FAlh $XAUTH
 echo ""
 echo "Running docker..."
 
+#docker run -it \
+#    --e DISPLAY \
+#    --env="QT_X11_NO_MITSHM=1" \
+#    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+#    --env="XAUTHORITY=$XAUTH" \
+#    --volume="$XAUTH:$XAUTH" \
+#    --privileged \
+#    --gpus all \
+#    --net=host pankhurivanjani/nvidiaroskinetic:v0  bash
+#echo "Done."
+#    #--env="DISPLAY=$DISPLAY" \
+
+
 docker run -it \
-    --env="DISPLAY=$DISPLAY" \
-    --env="QT_X11_NO_MITSHM=1" \
-    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-    --env="XAUTHORITY=$XAUTH" \
-    --volume="$XAUTH:$XAUTH" \
-    --net=host pankhurivanjani/nvidiaroskinetic:v0  bash
-echo "Done."
+      --rm \
+      --net=host \
+      --privileged \
+      --gpus all \
+      -e DISPLAY \
+      -e XAUTHORITY=/tmp/.Xauthority \
+      -v ${XAUTHORITY}:/tmp/.Xauthority \
+      -v /tmp/.X11-unix:/tmp/.X11-unix \
+      pankhurivanjani/nvidiaroskinetic:v0  bash
