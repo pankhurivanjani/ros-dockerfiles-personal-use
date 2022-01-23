@@ -4,6 +4,8 @@ To solve the error:
 
 --gpus all has to be run while running docker 
 
+--runtime=nvidia
+
 For solving this error, 
 
 Install these things on host PC :
