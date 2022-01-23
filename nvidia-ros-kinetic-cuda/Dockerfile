@@ -167,8 +167,35 @@ RUN apt-get install -qqy x11-apps
 
 RUN apt-get install dbus-x11 
 RUN sudo service dbus start
+
+ENV NVIDIA_VISIBLE_DEVICES all 
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,display
+
+RUN curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | \
+    apt-key add -
+
+RUN curl -s -L https://nvidia.github.io/nvidia-container-runtime/ubuntu16.04/amd64/nvidia-container-runtime.list | \
+  sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
+
+RUN apt-get update
+
+RUN apt-get install -y nvidia-container-runtime
+
+RUN curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | \
+    apt-key add - 
+
+RUN curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add - 
+    
+RUN curl -s -L https://nvidia.github.io/nvidia-docker/ubuntu16.04/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list 
+    
+RUN apt-get update 
+
+RUN apt-get install -y nvidia-container-toolkit 
+    
+
+
 #RUN xrandr
 
-#LABEL com.nvidia.volumes.needed="nvidia_driver"
-#ENV PATH /usr/local/nvidia/bin:${PATH}
-#ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
+LABEL com.nvidia.volumes.needed="nvidia_driver"
+ENV PATH /usr/local/nvidia/bin:${PATH}
+ENV LD_LIBRARY_PATH /usr/local/nvidia/lib:/usr/local/nvidia/lib64:${LD_LIBRARY_PATH}
