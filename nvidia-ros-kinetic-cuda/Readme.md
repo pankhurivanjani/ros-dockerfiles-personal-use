@@ -28,4 +28,4 @@ Fixes when installing on ubuntu 18 local system:
 1. ORB SLAM: http://20sep1995.blogspot.com/2019/06/error-usleep-is-not-declared-in-this.html
 2. Sophus: https://github.com/uzh-rpg/rpg_svo/issues/237
 3. rpg_svo - libvkit_common Undefined Reference : https://github.com/uzh-rpg/rpg_svo/issues/21
-4. 
+4. ORB SLAM ROS - Libboost issue : https://github.com/raulmur/ORB_SLAM2/issues/494#issuecomment-354346674
