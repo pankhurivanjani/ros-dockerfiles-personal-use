@@ -21,3 +21,11 @@ curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.li
 
 sudo apt-get update && sudo apt-get install -y nvidia-container-toolkit
 sudo systemctl restart docker
+
+
+Fixes when installing on ubuntu 18 local system:
+
+1. ORB SLAM: http://20sep1995.blogspot.com/2019/06/error-usleep-is-not-declared-in-this.html
+2. Sophus: https://github.com/uzh-rpg/rpg_svo/issues/237
+3. rpg_svo - libvkit_common Undefined Reference : https://github.com/uzh-rpg/rpg_svo/issues/21
+4. 
